@@ -7,6 +7,11 @@
 # frontmatter name that no longer matches its directory (which silently breaks
 # the slash command). This checks exactly those things.
 #
+# Vendored per skill repository as tests/validate-skill.sh; the canonical copy
+# lives in nlink-jp/.github templates/ (ADR-006). check-org.sh keeps the copies
+# byte-identical — edit the canonical, then re-vendor into every skill repo.
+# Repo-specific tests belong in the Makefile check target, not in this file.
+#
 # Usage: make check
 set -euo pipefail
 
