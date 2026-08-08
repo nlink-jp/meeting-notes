@@ -15,17 +15,25 @@ approximated. The JSON format is unchanged; existing records still compile.
 
 ## Install
 
-From a release zip (also uploadable as-is to claude.ai → Settings → Skills):
+Download `meeting-notes-vX.Y.Z.zip` from
+[Releases](https://github.com/nlink-jp/meeting-notes/releases), then register it:
 
-```bash
-unzip meeting-notes-vX.Y.Z.zip -d ~/.claude/skills/
-```
+- **In the app** (Claude Desktop, claude.ai, mobile) — add the zip from the
+  skill settings (Customize → Skills). Prefer this route; it survives changes
+  to where skills are stored on disk.
+- **Claude Code** — `unzip meeting-notes-vX.Y.Z.zip -d ~/.claude/skills/`, or into a
+  project's `.claude/skills/` for a project-scoped install.
 
 From a checkout:
 
 ```bash
 make install
 ```
+
+That builds the release zip and unpacks *that*, so what you run is what a
+release ships — a packaging defect breaks your install rather than reaching
+users. `make install DEST=/path/to/skills` installs elsewhere;
+`make uninstall` removes it.
 
 Requirements: Claude Code, and `python3` (3.9+, stdlib only) for the bundled
 validation/compile scripts.
